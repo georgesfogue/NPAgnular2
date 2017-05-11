@@ -1,0 +1,51 @@
+<h1>{{title}}</h1><br>
+
+
+<form *ngIf="edited" [formGroup]="noteForm">
+
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" value={{notput.title}} class="form-control" formControlName="title">
+  </div>
+  <div class="form-group">
+    <label>Content</label>
+    <textarea class="form-control" rows="4" value ={{notput.content}}  required formControlName="content"></textarea>
+  </div>
+  <div class="form-group">
+    <label>Category</label>
+    <select class="form-control" id="categorie" required>
+      <option>{{notput.categorie.nom}}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-default" (click)="savenot(notput.id)">Sauver</button>
+  <button type="submit" class="btn btn-default" (click)="annuler()">Annuler</button><br><br>
+
+  <div class="card card-outline-info  mb-3 ">
+    <div class="card-header" style="background-color: #f6f7ed;"><b>{{notput.title}}</b><br>
+      {{notput.categorie.nom}} - {{notput.date.timestamp* 1000|date: 'dd/MM/yyyy'}}
+    </div>
+    <div class="card-block">
+      <blockquote class="card-blockquote">
+        <p class="text-justify">{{notput.content}}</p>
+      </blockquote>
+    </div>
+  </div>
+
+
+
+</form>
+
+<div class="card card-outline-info  mb-3 " *ngFor = "let not of notes | async" [hidden] = "hidden">
+  <div class="card-header" style="background-color: #f6f7ed;"><b>{{not.title}}</b><br>
+    {{not.categorie.nom}} - {{not.date.timestamp* 1000|date: 'dd/MM/yyyy'}}
+  </div>
+  <div class="card-block">
+    <blockquote class="card-blockquote">
+      <p class="text-justify">{{not.content}}</p>
+      <footer>
+        <button type="button" class="btn btn-outline-info" (click)="editnote(not)">Modifier</button>
+        <button type="button" class="btn btn-outline-info" (click)="deletenote(not.id)" routerLink="/Notes">Supprimer</button>
+      </footer>
+    </blockquote>
+  </div>
+</div>

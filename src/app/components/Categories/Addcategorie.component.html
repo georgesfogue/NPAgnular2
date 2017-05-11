@@ -1,0 +1,6 @@
+<h1>{{title}}</h1><br>
+<div class="form-group" [formGroup]="addcatForm">
+  <label for="category">Nom</label>
+  <input type="text" class="form-control" id="category" formControlName="newcategory" placeholder="Ajouter une categorie">
+</div>
+<button type="submit" class="btn btn-default" (click)="savenewcat()">Sauvegarder</button>
