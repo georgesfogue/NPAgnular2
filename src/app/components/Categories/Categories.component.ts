@@ -19,11 +19,8 @@ export class CategoriesComponent implements OnInit{
   public modcat = false;
   public hidden = false;
   putcatForm: FormGroup;
-  datarspcat: any;
-
   msgerror: string;
-  allcateg : any[];
-  mode: 'Observable';
+
 
 
   constructor(private categoriesService: CategoriesService, private formBuilder: FormBuilder, private router: Router){}

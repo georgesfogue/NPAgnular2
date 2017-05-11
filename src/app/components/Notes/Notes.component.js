@@ -49,34 +49,16 @@ var NotesComponent = (function () {
         this.hidden = true;
     };
     NotesComponent.prototype.savenot = function (id) {
-        this.title = 'Liste de notes';
-        this.upnotes.idn = 4;
-        this.upnotes.title = "zertyuiopl,nbvsdfghjkcvbn,sdfghjdfg";
-        this.upnotes.content = "test test";
-        this.upnotes.categorie = "Bricolage";
-        // var putnotes = {
-        //   id: id,
-        //   title: this.noteForm.controls['title'].value,
-        //   content: this.noteForm.controls['content'].value,
-        //   categorie: this.notput.categorie.nom
-        // }
-        // this.noteService.updateNote(this.upnotes).subscribe(
-        //   data => this.getData = JSON.stringify(data),
-        //   error => alert(error),
-        //   ()=> console.log("terminer")
-        // );
-        //this.upnotes.idn = putnotes.idt;
-        //this.upnotes.title = putnotes.title;
-        //this.upnotes.content = putnotes.content;
-        //this.upnotes.categorie = putnotes.categorie;
-        /*this.noteService.PutNote(notes.id, notes.title, notes.content, notes.categorie)
-          .subscribe(
-            data => this.getData = JSON.stringify(data),
-            error => alert(error),
-            ()=> console.log("terminer")
-          );*/
-        //this.router.navigate(['/Notes']);
-        //location.reload();
+        var _this = this;
+        var putnotes = {
+            id: id,
+            title: this.noteForm.controls['title'].value,
+            content: this.noteForm.controls['content'].value,
+            categorie: this.notput.categorie.nom
+        };
+        this.noteService.updateNote(this.upnotes).subscribe(function (data) { return _this.getData = JSON.stringify(data); }, function (error) { return alert(error); }, function () { return console.log("terminer"); });
+        this.router.navigate(['/Notes']);
+        location.reload();
         console.log(this.upnotes);
     };
     NotesComponent.prototype.annuler = function () {

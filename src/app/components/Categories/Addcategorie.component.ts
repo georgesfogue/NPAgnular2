@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from './Categories.service';
 import {FormBuilder, Validators, FormGroup, FormControl} from '@angular/forms';
 import {RouterModule, Router}   from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
-import { Categorie } from  './catModel';
-import {Observable} from 'rxjs/Observable'; //Reactive extensions for JavaScript
 
 @Component({
   selector: 'Addcategorie', // dans une vue il suffira d'utilisé <notes></notes>

@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
 import {CategoriesService} from "../Categories/Categories.service";
 import {NotesService} from "../Notes/Notes.service";
 import {RouterModule, Router}   from '@angular/router';
-import { Notes } from  './noteModel';
-import { routes} from '../../app.routes';
 
 @Component({
   selector: 'addnotes', // dans une vue il suffira d'utilisé <notes></notes>
@@ -15,14 +11,11 @@ import { routes} from '../../app.routes';
   templateUrl: './Addnote.component.html',
 })
 
-
 export class AddNotesComponent implements OnInit {
   title = 'Ajouter une note';
   addForm: FormGroup;
   getData: string;
   public allcat: any[];
-
-
   constructor(private catService: CategoriesService, private formBuilder: FormBuilder, private notesService: NotesService,private router: Router){}
 
   ngOnInit(){
